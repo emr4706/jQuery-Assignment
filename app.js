@@ -6,8 +6,10 @@ $(document).on("click", ".delete", function (e) {
 
     e.preventDefault();
 
-    $(this).closest("li").remove();
-    
+    $(this).closest("li").remove(); // closest: select the first parent.
+    // another way -> // $("li").eq(0).remove(); // eq syntax $(selector).eq(index). what want you do.
+    var muzik= new Audio( "audio/Cave.mp3");
+    muzik.play();
 });
 
 // 2. Add button should add a topic (an li element inside 2 span elements).
@@ -20,7 +22,7 @@ $("button").on("click", function (e) {
     if(newList !== " ") {
      
         $("ul").append("<li><span class='name'> " + newList+ "</span><span class='delete'>delete</span></li>");
-        $("#add-list").val(" ");
+        $("#add-list").val(" "); // click ettikten sonra texti sifirlarlamyi saglar.
     };
     
 });
@@ -30,7 +32,7 @@ $("button").on("click", function (e) {
 
 $("#hide").click(function (e) { 
 
-    $("ul").toggle(this.unchecked);
+    $("ul").toggle();
 
 });
 
@@ -41,5 +43,5 @@ $("#searchInput").on("keyup", function() {
     $("li").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(searchList) > -1)
     });
-  });
+  });  // ?????????
 
